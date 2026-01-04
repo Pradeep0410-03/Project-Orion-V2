@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Login | Football Shop</title>
+ 
+  
+  <style>
+  
+  body {
+  background-image: url("Football.jpg.jpg");
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Segoe UI", Arial, sans-serif;
+}
+
+/* LOGIN BOX */
+.login-box {
+
+  background: rgba(0, 0, 0, 0.75);
+  padding: 35px;
+  width: 340px;
+  border-radius: 12px;
+  text-align: center;
+  color: white;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.6);
+}
+
+/* MAIN HEADING */
+.main-title {
+  margin-bottom: 5px;
+  font-size: 28px;
+  letter-spacing: 1px;
+}
+
+/* TAGLINE */
+.tagline {
+  font-size: 14px;
+  color: #ddd;
+  margin-bottom: 25px;
+}
+
+/* INPUTS */
+.login-box input {
+  width: 100%;
+  padding: 12px;
+  margin: 10px 0;
+  border-radius: 6px;
+  border: none;
+  font-size: 14px;
+}
+
+/* BUTTON */
+.login-box button {
+  width: 100%;
+  padding: 12px;
+  margin-top: 15px;
+  background-color: #00c853;
+  border: none;
+  color: white;
+  font-size: 16px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.login-box button:hover {
+  background-color: #00a844;
+}
+
+/* EXTRA LINK */
+.extra-link {
+  margin-top: 15px;
+  font-size: 13px;
+}
+
+.extra-link a {
+  color: #00e5ff;
+  text-decoration: none;
+}
+
+  </style>
+</head>
+<body class="login-body">
+    <img src="footballlogo.png" alt="Football Shop Logo" class="logo">
+
+    
+  <div class="login-box">
+    
+
+    <h2>Enter Your Credentials</h2>
+
+    <input type="text" placeholder="Username">
+    <input type="password" placeholder="Password">
+
+    <button>Login</button>
+    <input type="checkbox" id="reset password" name="reset_password">
+    <label for="reset password"> Reset Password</label><br>
+    <input type="checkbox" id="Login By Otp" name="login_by_otp">
+    <label for="Login By Otp"> Login By Otp</label>
+
+    <p>Go to <a href="index.html">Shop</a></p>
+  </div>
+
+</body>
+</html>

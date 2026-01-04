@@ -1,0 +1,61 @@
+/* LOGIN PAGE BACKGROUND */
+.login-body {
+  height: 100vh;
+  background-image: url("https://wallpapers.com/images/hd/football-stadium-at-night-4k-nl8t7u1k0g1z8l8n.jpg");
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* LOGIN BOX */
+.login-container {
+  background: rgba(0, 0, 0, 0.7);
+  padding: 30px;
+  width: 320px;
+  border-radius: 10px;
+  color: white;
+  text-align: center;
+}
+
+/* HEADLINE */
+.login-container h2 {
+  margin-bottom: 20px;
+}
+
+/* INPUT FIELDS */
+.login-container input {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border: none;
+  border-radius: 5px;
+}
+
+/* LOGIN BUTTON */
+.login-container button {
+  width: 100%;
+  padding: 10px;
+  background-color: #00c853;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.login-container button:hover {
+  background-color: #00a844;
+}
+
+/* LINK TEXT */
+.link-text {
+  margin-top: 15px;
+  font-size: 14px;
+}
+
+.link-text a {
+  color: aqua;
+  text-decoration: none;
+}
