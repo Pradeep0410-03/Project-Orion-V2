@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Login Page</title>
+<script src="script.js"></script>
 
 <style>
 *{
@@ -20,6 +21,7 @@ body{
 
     display:flex;
     flex-direction:column;
+    color:#e6e6e6;
 }
 
 body::before{
@@ -66,6 +68,7 @@ nav a:hover{
     flex-direction:column;
     justify-content:center;
     align-items:center;
+    padding:32px 16px;
 }
 
 
@@ -80,24 +83,32 @@ header{
 
 
 form{
-    width:320px;
-    background:rgba(0,0,0,0.7);
+    width:340px;
+    background:rgba(0,0,0,0.75);
     padding:30px;
     border-radius:12px;
     color:white;
+    box-shadow:0 10px 30px rgba(0,0,0,0.55);
+    border:1px solid rgba(255,255,255,0.08);
+    backdrop-filter: blur(6px);
 }
 
 label{
     display:block;
     margin-top:12px;
+    font-size:14px;
+    letter-spacing:0.2px;
 }
 
 input{
     width:100%;
     margin-top:6px;
     padding:9px;
-    border:none;
+    border:1px solid rgba(255,255,255,0.25);
     border-radius:5px;
+    background:rgba(255,255,255,0.12);
+    color:#f7f7f7;
+    transition:border 0.15s ease, background 0.15s ease;
 }
 
 /* 🔹 Input focus UX */
@@ -108,31 +119,86 @@ input:focus{
     color:white;
 }
 
+/* 🔹 Helpers */
+.hint{
+    margin-top:6px;
+    font-size:12px;
+    color:#bdbdbd;
+}
+
+.form-row{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:12px;
+    margin-top:14px;
+    font-size:13px;
+}
+
+.link{
+    color:#8bc34a;
+    text-decoration:none;
+}
+
+.link:hover{
+    text-decoration:underline;
+}
+
+.password-wrap{
+    position:relative;
+}
+
+.toggle-btn{
+    position:absolute;
+    top:50%;
+    right:10px;
+    transform:translateY(-50%);
+    background:none;
+    border:none;
+    color:#e0e0e0;
+    cursor:pointer;
+    font-size:12px;
+    padding:4px 6px;
+}
+
+.toggle-btn:focus{
+    outline:2px solid #4CAF50;
+}
+
 /* 🔹 Buttons */
 .buttons{
     margin-top:18px;
     display:flex;
-    justify-content:space-between;
+    gap:10px;
 }
 
-input[type="submit"]{
+.btn{
+    flex:1;
+    padding:10px 14px;
+    border:none;
+    border-radius:6px;
+    cursor:pointer;
+    font-weight:600;
+    letter-spacing:0.3px;
+}
+
+.btn-primary{
     background:#4CAF50;
     color:white;
-    cursor:pointer;
 }
 
-input[type="submit"]:hover{
+.btn-primary:hover{
     background:#43a047;
 }
 
-input[type="button"]{
-    background:#f44336;
-    color:white;
-    cursor:pointer;
+.btn-ghost{
+    background:transparent;
+    border:1px solid rgba(255,255,255,0.2);
+    color:#f0f0f0;
 }
 
-input[type="button"]:hover{
-    background:#d32f2f;
+.btn-ghost:hover{
+    background:rgba(255,255,255,0.08);
 }
 
 /* 🔹 FOOTER */
@@ -160,6 +226,7 @@ footer{
 <body>
 
 
+    
 <nav>
     <img src="notion.jpeg" alt="Logo">
     <a href="#">Home</a>
@@ -170,19 +237,27 @@ footer{
 <div class="container">
 <header>LOG IN YOUR ACCOUNT</header>
 
-<form>
-    <label>Username</label>
-    <input type="text" required>
+<form id="loginForm" novalidate>
+    <label for="username">Username</label>
+    <input id="username" name="username" type="text" autocomplete="username" placeholder="Enter your username" required aria-required="true">
 
-    <label>Password</label>
-    <input type="password" required>
+    <label for="password">Password</label>
+    <div class="password-wrap">
+        <input id="password" name="password" type="password" autocomplete="current-password" placeholder="Enter your password" required aria-required="true">
+        <button type="button" class="toggle-btn" aria-label="Toggle password visibility" id="togglePassword">Show</button>
+    </div>
+    <div class="hint">Use 8+ characters with letters and numbers.</div>
 
-    <label>Date of Birth</label>
-    <input type="date">
+    <div class="form-row">
+        <label style="margin-top:0;">
+            <input type="checkbox" id="remember" name="remember"> Remember me
+        </label>
+        <a class="link" href="#">Forgot password?</a>
+    </div>
 
     <div class="buttons">
-        <input type="submit" value="Login">
-        <input type="button" value="Reset">
+        <button type="submit" class="btn btn-primary" id="loginBtn">Login</button>
+        <button type="reset" class="btn btn-ghost">Reset</button>
     </div>
 </form>
 </div>
@@ -190,8 +265,36 @@ footer{
 
 <footer>
     📧 Email: tiwaripradeep9575@gmail.com |
-    📞 Contact: +91 98765 43210
+    📞 Contact: +91 98765 43210 |
+    <a class="link" href="#" style="color:#cddc39;">Privacy</a> ·
+    <a class="link" href="#" style="color:#cddc39;">Terms</a>
 </footer>
 
+<script>
+// Toggle password visibility
+const passwordInput = document.getElementById("password");
+const toggleBtn = document.getElementById("togglePassword");
+toggleBtn.addEventListener("click", () => {
+    const isHidden = passwordInput.type === "password";
+    passwordInput.type = isHidden ? "text" : "password";
+    toggleBtn.textContent = isHidden ? "Hide" : "Show";
+    passwordInput.focus();
+});
+
+// Basic submit UX (demo only)
+const form = document.getElementById("loginForm");
+const loginBtn = document.getElementById("loginBtn");
+form.addEventListener("submit", (e) => {
+    if (!form.checkValidity()) return; // let browser show native validation
+    e.preventDefault();
+    loginBtn.disabled = true;
+    loginBtn.textContent = "Logging in...";
+    setTimeout(() => {
+        loginBtn.disabled = false;
+        loginBtn.textContent = "Login";
+        alert("Demo only: connect to backend for real login.");
+    }, 1200);
+});
+</script>
 </body>
 </html>

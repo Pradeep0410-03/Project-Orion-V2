@@ -1,25 +1,24 @@
-const matches = [
-  {
-    teams: "Brazil vs Germany",
-    date: "12 June 2026",
-    venue: "MetLife Stadium"
-  },
-  {
-    teams: "Argentina vs France",
-    date: "14 June 2026",
-    venue: "SoFi Stadium"
-  }
-];
+// Toggle password visibility
+const passwordInput = document.getElementById("password");
+const toggleBtn = document.getElementById("togglePassword");
+toggleBtn.addEventListener("click", () => {
+  const isHidden = passwordInput.type === "password";
+  passwordInput.type = isHidden ? "text" : "password";
+  toggleBtn.textContent = isHidden ? "Hide" : "Show";
+  passwordInput.focus();
+});
 
-const matchSection = document.querySelector(".matches");
-
-matches.forEach(match => {
-  const div = document.createElement("div");
-  div.className = "match-card";
-  div.innerHTML = `
-    <p><strong>${match.teams}</strong></p>
-    <p>Date: ${match.date}</p>
-    <p>Venue: ${match.venue}</p>
-  `;
-  matchSection.appendChild(div);
+// Basic submit UX (demo only)
+const form = document.getElementById("loginForm");
+const loginBtn = document.getElementById("loginBtn");
+form.addEventListener("submit", (e) => {
+  if (!form.checkValidity()) return; // let browser show native validation
+  e.preventDefault();
+  loginBtn.disabled = true;
+  loginBtn.textContent = "Logging in...";
+  setTimeout(() => {
+    loginBtn.disabled = false;
+    loginBtn.textContent = "Login";
+    alert("Demo only: connect to backend for real login.");
+  }, 1200);
 });
