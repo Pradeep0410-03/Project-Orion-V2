@@ -1,112 +1,197 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Login | Football Shop</title>
- 
-  
-  <style>
-  
-  body {
-  background-image: url("Football.jpg.jpg");
-  background-size: cover;
-  background-position: center;
-  height: 100vh;
-  margin: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-family: "Segoe UI", Arial, sans-serif;
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Login Page</title>
+
+<style>
+*{
+    box-sizing: border-box;
 }
 
-/* LOGIN BOX */
-.login-box {
+body{
+    margin:0;
+    min-height:100vh;
+    font-family: Arial, sans-serif;
+    background-image:url("https://images.unsplash.com/photo-1763236390948-fcc866ddb17a?w=1600");
+    background-size:cover;
+    background-position:center;
 
-  background: rgba(0, 0, 0, 0.75);
-  padding: 35px;
-  width: 340px;
-  border-radius: 12px;
-  text-align: center;
-  color: white;
-  box-shadow: 0 8px 25px rgba(0,0,0,0.6);
+    display:flex;
+    flex-direction:column;
 }
 
-/* MAIN HEADING */
-.main-title {
-  margin-bottom: 5px;
-  font-size: 28px;
-  letter-spacing: 1px;
+body::before{
+    content:"";
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,0.45);
+    z-index:-1;
 }
 
-/* TAGLINE */
-.tagline {
-  font-size: 14px;
-  color: #ddd;
-  margin-bottom: 25px;
+
+nav{
+    position:fixed;
+    top:15px;
+    left:15px;
+    display:flex;
+    align-items:center;
+    gap:15px;
+    padding:10px 20px;
+    background:rgba(0,0,0,0.75);
+    border-radius:12px;
+    box-shadow:0 4px 10px rgba(0,0,0,0.6);
 }
 
-/* INPUTS */
-.login-box input {
-  width: 100%;
-  padding: 12px;
-  margin: 10px 0;
-  border-radius: 6px;
-  border: none;
-  font-size: 14px;
+nav img{
+    height:35px;
+    border-radius:6px;
 }
 
-/* BUTTON */
-.login-box button {
-  width: 100%;
-  padding: 12px;
-  margin-top: 15px;
-  background-color: #00c853;
-  border: none;
-  color: white;
-  font-size: 16px;
-  border-radius: 6px;
-  cursor: pointer;
+nav a{
+    color:white;
+    text-decoration:none;
+    font-size:16px;
 }
 
-.login-box button:hover {
-  background-color: #00a844;
+nav a:hover{
+    text-decoration:underline;
 }
 
-/* EXTRA LINK */
-.extra-link {
-  margin-top: 15px;
-  font-size: 13px;
+/* 🔹 CENTER CONTAINER */
+.container{
+    flex:1;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
 }
 
-.extra-link a {
-  color: #00e5ff;
-  text-decoration: none;
+
+header{
+    background:rgba(0,0,0,0.6);
+    color:white;
+    padding:15px 30px;
+    margin-bottom:20px;
+    border-radius:8px;
+    font-size:24px;
 }
 
-  </style>
+
+form{
+    width:320px;
+    background:rgba(0,0,0,0.7);
+    padding:30px;
+    border-radius:12px;
+    color:white;
+}
+
+label{
+    display:block;
+    margin-top:12px;
+}
+
+input{
+    width:100%;
+    margin-top:6px;
+    padding:9px;
+    border:none;
+    border-radius:5px;
+}
+
+/* 🔹 Input focus UX */
+input:focus{
+    outline:none;
+    border:2px solid #4CAF50;
+    background:#222;
+    color:white;
+}
+
+/* 🔹 Buttons */
+.buttons{
+    margin-top:18px;
+    display:flex;
+    justify-content:space-between;
+}
+
+input[type="submit"]{
+    background:#4CAF50;
+    color:white;
+    cursor:pointer;
+}
+
+input[type="submit"]:hover{
+    background:#43a047;
+}
+
+input[type="button"]{
+    background:#f44336;
+    color:white;
+    cursor:pointer;
+}
+
+input[type="button"]:hover{
+    background:#d32f2f;
+}
+
+/* 🔹 FOOTER */
+footer{
+    background:rgba(0,0,0,0.9);
+    color:white;
+    text-align:center;
+    padding:15px;
+    font-size:14px;
+}
+
+/* 🔹 RESPONSIVE */
+@media (max-width:768px){
+    form{
+        width:90%;
+    }
+    nav{
+        flex-direction:column;
+        gap:8px;
+    }
+}
+</style>
 </head>
-<body class="login-body">
-    <img src="footballlogo.png" alt="Football Shop Logo" class="logo">
 
-    
-  <div class="login-box">
-    
+<body>
 
-    <h2>Enter Your Credentials</h2>
 
-    <input type="text" placeholder="Username">
-    <input type="password" placeholder="Password">
+<nav>
+    <img src="notion.jpeg" alt="Logo">
+    <a href="#">Home</a>
+    <a href="#">About</a>
+</nav>
 
-    <button>Login</button>
-    <input type="checkbox" id="reset password" name="reset_password">
-    <label for="reset password"> Reset Password</label><br>
-    <input type="checkbox" id="Login By Otp" name="login_by_otp">
-    <label for="Login By Otp"> Login By Otp</label>
 
-    <p>Go to <a href="index.html">Shop</a></p>
-  </div>
+<div class="container">
+<header>LOG IN YOUR ACCOUNT</header>
+
+<form>
+    <label>Username</label>
+    <input type="text" required>
+
+    <label>Password</label>
+    <input type="password" required>
+
+    <label>Date of Birth</label>
+    <input type="date">
+
+    <div class="buttons">
+        <input type="submit" value="Login">
+        <input type="button" value="Reset">
+    </div>
+</form>
+</div>
+
+
+<footer>
+    📧 Email: tiwaripradeep9575@gmail.com |
+    📞 Contact: +91 98765 43210
+</footer>
 
 </body>
 </html>
